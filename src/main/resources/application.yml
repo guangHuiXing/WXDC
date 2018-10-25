@@ -6,3 +6,6 @@ spring:
     url: jdbc:mysql://localhost:3306/meituan?characterEncoding=utf-8
   jpa:
     show-sql: true
+server:
+  servlet:
+    context-path: /sell

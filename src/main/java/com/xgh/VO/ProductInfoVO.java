@@ -1,51 +1,25 @@
-package com.xgh.dataobject;
+package com.xgh.VO;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.math.BigDecimal;
 
 /**
  * Created by XGH on 2018/10/25
+ * 商品详情
  */
-@Entity
-public class ProductInfo {
-    @Id
+public class ProductInfoVO {
+
+    @JsonProperty("id")
     private String productId;
-
-    /**
-     * 名字
-     */
+    @JsonProperty("name")
     private String productName;
-
-    /**
-     * 单价
-     */
+    @JsonProperty("price")
     private BigDecimal productPrice;
-
-    /**
-     * 库存
-     */
-    private Integer productStock;
-
-    /**
-     * 描述
-     */
+    @JsonProperty("description")
     private String productDescription;
-
-    /**
-     * 小图
-     */
+    @JsonProperty("icon")
     private String productIcon;
-
-    /**
-     * 状态,0正常，1下架
-     */
-    private Integer productStatus;
-
-    /**
-     * 类目编号
-     */
-    private Integer categoryType;
 
     public String getProductId() {
         return productId;
@@ -71,14 +45,6 @@ public class ProductInfo {
         this.productPrice = productPrice;
     }
 
-    public Integer getProductStock() {
-        return productStock;
-    }
-
-    public void setProductStock(Integer productStock) {
-        this.productStock = productStock;
-    }
-
     public String getProductDescription() {
         return productDescription;
     }
@@ -93,21 +59,5 @@ public class ProductInfo {
 
     public void setProductIcon(String productIcon) {
         this.productIcon = productIcon;
-    }
-
-    public Integer getProductStatus() {
-        return productStatus;
-    }
-
-    public void setProductStatus(Integer productStatus) {
-        this.productStatus = productStatus;
-    }
-
-    public Integer getCategoryType() {
-        return categoryType;
-    }
-
-    public void setCategoryType(Integer categoryType) {
-        this.categoryType = categoryType;
     }
 }
