@@ -1,5 +1,6 @@
 package com.xgh.service;
 
+import com.xgh.DTO.CartDTO;
 import com.xgh.dataobject.ProductInfo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,5 +27,8 @@ public interface ProductInfoService {
      */
     ProductInfo save(ProductInfo productInfo);
     //加库存
+    void increaseStock(List<CartDTO> cartDTOS);
+
     //减库存
+    void decreaseStock(List<CartDTO> cartDTOS);
 }

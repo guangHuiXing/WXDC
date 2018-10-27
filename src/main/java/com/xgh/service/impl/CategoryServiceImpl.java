@@ -1,7 +1,8 @@
-package com.xgh.service;
+package com.xgh.service.impl;
 
 import com.xgh.dataobject.ProductCategory;
 import com.xgh.repository.ProductCategoryRepository;
+import com.xgh.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * Created by XGH on 2018/10/24
  */
 @Service
-public class CategoryServiceImpl implements CategoryService{
+public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
     private ProductCategoryRepository repository;
