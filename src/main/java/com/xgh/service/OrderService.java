@@ -1,8 +1,10 @@
 package com.xgh.service;
 
 import com.xgh.DTO.OrderDTO;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
-import java.awt.print.Pageable;
+
 import java.util.List;
 
 /**
@@ -15,7 +17,7 @@ public interface OrderService {
     /**查询单个订单*/
     OrderDTO findOne(String orderId);
     /**查询订单列表*/
-    List<OrderDTO> findList(String BuyerOpenid, Pageable pageable);
+    Page<OrderDTO> findList(String buyerOpenid, Pageable pageable);
 
     /**取消订单*/
     OrderDTO cancel(OrderDTO orderDTO);

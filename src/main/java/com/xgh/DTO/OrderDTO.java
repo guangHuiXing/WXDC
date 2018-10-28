@@ -1,8 +1,11 @@
 package com.xgh.DTO;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.xgh.dataobject.OrderDetail;
 import com.xgh.enums.OrderStatusEnum;
 import com.xgh.enums.PayStatusEnum;
+import com.xgh.utils.serializer.Date2LongSerializer;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -11,6 +14,7 @@ import java.util.List;
 /**
  * Created by XGH on 2018/10/28
  */
+//@JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrderDTO {
 
     /**订单ID*/
@@ -30,8 +34,10 @@ public class OrderDTO {
     /** 支付状态，0为未支付*/
     private  Integer payStatus;
     /**创建时间*/
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date createTime;
     /**更新时间*/
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date updateTime;
 
     List<OrderDetail> orderDetailList;
@@ -124,5 +130,22 @@ public class OrderDTO {
 
     public void setOrderDetailList(List<OrderDetail> orderDetailList) {
         this.orderDetailList = orderDetailList;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderDTO{" +
+                "orderId='" + orderId + '\'' +
+                ", buyerName='" + buyerName + '\'' +
+                ", buyerPhone='" + buyerPhone + '\'' +
+                ", buyerAddress='" + buyerAddress + '\'' +
+                ", buyerOpenid='" + buyerOpenid + '\'' +
+                ", orderAmount=" + orderAmount +
+                ", orderStatus=" + orderStatus +
+                ", payStatus=" + payStatus +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", orderDetailList=" + orderDetailList +
+                '}';
     }
 }
